@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script>
+            var socket = io();
+            socket.on('message', function(data) {
+                document.querySelector('#message').textContent = data;
+            });
+        </script>
+        <style>
+            body {
+                background-color: black;
+            }
+
+            h1 {
+                font-size: 15rem;
+                text-align: center;
+                color: white;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="message">Hello World!</h1>
+        </div>
+    </body>
+</html>
