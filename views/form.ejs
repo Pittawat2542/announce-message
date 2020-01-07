@@ -11,6 +11,11 @@
         ></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                var key = prompt('Password!');
+                if (key !== 'H)2M?Gt/tGR4LwnL') {
+                    window.location.replace('http://www.google.com');
+                }
+
                 var socket = io();
                 document
                     .querySelector('form')
