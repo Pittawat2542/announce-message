@@ -3,7 +3,9 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-server.listen(3000);
+const port = process.env.PORT || 3000;
+
+server.listen(port);
 
 app.set('view engine', 'ejs');
 
