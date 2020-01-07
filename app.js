@@ -5,12 +5,16 @@ const io = require('socket.io')(server);
 
 const port = process.env.PORT || 3000;
 
+let MESSAGE = 'Hello World'
+
 server.listen(port);
 
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        msg: MESSAGE
+    });
 });
 
 app.get('/form', (req, res) => {
@@ -24,6 +28,7 @@ io.on('connection', socket => {
     });
 
     socket.on('send-message', data => {
+        MESSAGE = data;
         io.emit('message', data);
     });
 });
