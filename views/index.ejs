@@ -10,17 +10,38 @@
             var socket = io();
             socket.on('message', function(data) {
                 document.querySelector('#message').textContent = data;
+                document.querySelector('#message').classList.add('animated');
+                document.querySelector('#message').classList.add('wobble');
+                document.querySelector('#message').classList.add('yellow');
+                setTimeout(() => {
+                    document
+                        .querySelector('#message')
+                        .classList.remove('animated');
+                    document
+                        .querySelector('#message')
+                        .classList.remove('wobble');
+                    document
+                        .querySelector('#message')
+                        .classList.remove('yellow');
+                }, 1500);
             });
         </script>
+        <link rel="stylesheet" href="/animate.css" />
         <style>
             body {
                 background-color: black;
             }
 
             h1 {
+                font-family: sans-serif;
                 font-size: 15rem;
                 text-align: center;
                 color: white;
+            }
+
+            .yellow {
+                color: yellow !important;
+                transition: all .5s ease-in-out;
             }
 
             .container {

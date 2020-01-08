@@ -11,10 +11,10 @@
         ></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                var key = prompt('Password!');
-                if (key !== 'H)2M?Gt/tGR4LwnL') {
-                    window.location.replace('http://www.google.com');
-                }
+                // var key = prompt('Password!');
+                // if (key !== 'H)2M?Gt/tGR4LwnL') {
+                //     window.location.replace('http://www.google.com');
+                // }
 
                 var socket = io();
                 document
@@ -30,11 +30,39 @@
                     });
             });
         </script>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: sans-serif;
+            }
+
+            button {
+                margin: 1rem 0.5rem;
+                font-size: 1.5rem;
+                padding: 1rem;
+                border: none;
+                background-color: white;
+                color: black;
+                border-radius: 1rem;
+            }
+
+            input {
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        </style>
     </head>
     <body>
-        <form action="">
-            <label for="">Message</label
-            ><input type="text" name="input" id="input" /><button type="submit">
+        <form action="" class="container">
+            <input type="text" name="input" id="input" /><button type="submit">
                 Submit
             </button>
         </form>
