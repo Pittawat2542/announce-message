@@ -28,6 +28,10 @@
                         document.querySelector('#input').value = '';
                         return false;
                     });
+
+                socket.on('message', function(data) {
+                    const messageElement = document.querySelector('#message');
+                });
             });
         </script>
         <style>
@@ -63,10 +67,11 @@
         </style>
     </head>
     <body>
-        <form action="" class="container">
+        <div class="container">
+            <p id="message"><%= msg %></p>
             <input type="text" name="input" id="input" /><button type="submit">
                 Submit
             </button>
-        </form>
+        </div>
     </body>
 </html>

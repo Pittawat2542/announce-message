@@ -20,7 +20,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/form', (req, res) => {
-    res.render('form');
+    res.render('form', {
+        msg: MESSAGE
+    });
 });
 
 io.on('connection', socket => {
