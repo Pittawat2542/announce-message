@@ -64,11 +64,15 @@
                 flex-direction: column;
                 height: 100vh;
             }
+
+            .bold {
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div class="container">
-            <p>Current Message: <span id="message"><%= msg %></span></p>
+            <p class="bold">Current Message: <span id="message"><%= msg %></span></p> class="bold"
             <input type="text" name="input" id="input" /><button type="submit">
                 Submit
             </button>
