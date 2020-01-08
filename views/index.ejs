@@ -9,10 +9,22 @@
         <script>
             var socket = io();
             socket.on('message', function(data) {
-                document.querySelector('#message').textContent = data;
-                document.querySelector('#message').classList.add('animated');
-                document.querySelector('#message').classList.add('wobble');
-                document.querySelector('#message').classList.add('yellow');
+                const messageElement = document.querySelector('#message');
+                messageElement.textContent = data;
+                if (data.length > 10) {
+                    messageElement.style['font-size'] = '10rem';
+
+                    if (data.length > 30) {
+                        messageElement.style['font-size'] = '7rem';
+                    }
+
+                    if (data.length > 50) {
+                        messageElement.style['font-size'] = '5rem';
+                    }
+                }
+                messageElement.classList.add('animated');
+                messageElement.classList.add('wobble');
+                messageElement.classList.add('yellow');
                 setTimeout(() => {
                     document
                         .querySelector('#message')
@@ -37,11 +49,12 @@
                 font-size: 15rem;
                 text-align: center;
                 color: white;
+                width: 100%;
             }
 
             .yellow {
                 color: yellow !important;
-                transition: all .5s ease-in-out;
+                transition: all 0.5s ease-in-out;
             }
 
             .container {
