@@ -5,13 +5,13 @@ const io = require('socket.io')(server);
 
 const port = process.env.PORT || 3000;
 
-let MESSAGE = 'Hello World'
+let MESSAGE = 'Hello World';
 
 server.listen(port);
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     res.render('index', {
@@ -26,10 +26,7 @@ app.get('/form', (req, res) => {
 });
 
 io.on('connection', socket => {
-    console.log('a user connected');
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
+    // socket.on('disconnect', () => {});
 
     socket.on('send-message', data => {
         MESSAGE = data;
